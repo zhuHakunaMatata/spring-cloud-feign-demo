@@ -29,7 +29,7 @@ public class PersonClientController {
     }
 
     @GetMapping("/person/find/all")
-    public Collection<Person> findAll(){
+    public Collection<Person> findAll() throws Exception{
         return personService.findAll();
     }
 

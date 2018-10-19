@@ -35,6 +35,6 @@ public interface PersonService {
                             value = "1")
             }
     )
-    Collection<Person> findAll();
+    Collection<Person> findAll() throws InterruptedException;
 
 }
