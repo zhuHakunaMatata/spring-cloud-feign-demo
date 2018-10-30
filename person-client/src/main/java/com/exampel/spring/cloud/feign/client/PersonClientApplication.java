@@ -1,6 +1,7 @@
 package com.exampel.spring.cloud.feign.client;
 
 import com.exampel.spring.cloud.feign.api.service.PersonService;
+import com.exampel.spring.cloud.feign.api.web.WebConfig;
 import com.exampel.spring.cloud.feign.client.ribbon.MyLoadBanlanceRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 
 /**
  * Created by kyle on 2018/10/16.
@@ -16,14 +18,15 @@ import org.springframework.context.annotation.Bean;
 @EnableDiscoveryClient
 @EnableHystrix
 @EnableFeignClients(clients= PersonService.class)
+@Import(WebConfig.class)
 public class PersonClientApplication {
     public static void main(String[] args) {
         SpringApplication.run(PersonClientApplication.class,args);
     }
 
-    @Bean
-    public MyLoadBanlanceRule myLoadBanlanceRule(){
-        return new MyLoadBanlanceRule();
-    }
+//    @Bean
+//    public MyLoadBanlanceRule myLoadBanlanceRule(){
+//        return new MyLoadBanlanceRule();
+//    }
 
 }
