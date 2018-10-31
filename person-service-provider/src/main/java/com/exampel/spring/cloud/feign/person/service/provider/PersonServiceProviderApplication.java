@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.Import;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Created by kyle on 2018/10/16.
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Import;
 @EnableDiscoveryClient
 @EnableHystrix
 @Import(WebConfig.class)
+@EnableTransactionManagement(proxyTargetClass=true)
 public class PersonServiceProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(PersonServiceProviderApplication.class,args);
